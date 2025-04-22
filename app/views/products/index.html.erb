@@ -2,7 +2,8 @@
 <div id="products">
   <% @products.each_with_index do |product, i| %>
     <div>
-      <%= i+1 %>. <%= product.name %>
+      <%= i+1 %>. 
+      <%= link_to product.name, product %>
     </div>
   <% end %>
 </div>
