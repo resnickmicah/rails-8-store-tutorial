@@ -1,5 +1,10 @@
 class Product < ApplicationRecord
+  include Notifications
+
   has_one_attached :featured_image
   has_rich_text :description
-  validates_presence_of :name
+  has_many :subscribers, dependent: :destroy
+
+  validates :name, presence: true
+  validates :inventory_count, numericality: { greater_than_or_equal_to: 0 }
 end
